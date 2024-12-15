@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посты Архитектора</title>
+    <link rel="stylesheet" href="css/posts.css">
+    <link rel="icon" type="image/x-icon" href="/src/images/uruma.jpg">
+</head>
+<body>
+    <div class="container">
+        <h1 class="write">Пишешь посты?</h1><br>
+        
+        <form action="creatpost.html" method="POST">
+            <input class="login" type="text" name="login" placeholder="Логин" required>
+            <br>
+            <br>
+            <input class="passwd" type="password" name="password" placeholder="Пароль" required>
+            <br>
+            <br>
+            <input class="enter" type="submit" value="Войти">
+        </form>
+        <br>
+        
+        <h1 class="read">Я читаю посты</h1><br>
+        <button class="read__posts">Читать</button>
+    </div>
+    <script>
+        // login Admin
+        const loginForm = document.querySelector("form");
+        loginForm.addEventListener("submit", (event) => {
+            event.preventDefault();
+            if (event.target.login.value === "App" && event.target.password.value === "dev1sgonnaBeR!ch") {
+                window.location.href = "creatpost.html";
+            } else {
+                alert("Incorrect login or password!");
+            }
+        });
+        // Read Posts
+        const readButton = document.querySelector(".read__posts");
+        readButton.addEventListener("click", (event) => {
+            event.preventDefault();
+            window.location.href = "readpost.html";
+        });
+    </script>
+</body>
+</html>

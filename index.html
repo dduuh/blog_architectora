@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Блог Архитектора</title>
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="icon" type="image/x-icon" href="/src/images/uruma.jpg">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul class="nav__links">
+                <li><a href="index.html" class="blog">Blog</a></li>
+                <li><a href="https://t.me/architector1_tg" class="contact">Contact Telegram</a></li>
+                <li><a href="posts.html" class="posts">Posts</a></li>
+            </ul>
+        </nav>
+        <button class="donateme">Donate</button>
+    </header>
+
+    <div class="container">
+        <h1 class="welcome">Welcome to Блог Архитектора</h1>
+        <img class="uruma" src="/src/images/uruma.jpg" alt="uruma">
+        <p class="description">Здравствуй, мой друг!<br> Ты попал в мой блог, где я тут рассказываю про программирование, школу, спорт и тому подобное.<br>
+        Если есть возможность поддержать, то нажми на кнопку 'Donate'<br><br>Посмотреть мои посты/истории: <a href="posts.html">Посты</a></p>
+    </div>
+    <script>
+        const donateMe = document.querySelector(".donateme");
+        donateMe.addEventListener("click", (event) => {
+            window.location.href = "donate.html";
+        })
+    </script>
+</body>
+</html>

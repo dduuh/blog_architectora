@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Посты</title>
+    <link rel="icon" type="image/x-icon" href="/src/images/uruma.jpg">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #post-container {
+            height: 1000px;
+            background-color: #ffffff;
+        }
+        .post-title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .post-description {
+            font-size: 18px;
+        }
+        .posts {
+            text-align: center;
+            padding-top: 10px;
+            background-color: #000;
+            color: white;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="posts">Посты</h1>
+    <div id="post-container"></div>
+    <script>
+        const adminPassword = "dev1sgonnaBeR!ch";
+        
+        function loadPosts() {
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            var postContainer = document.getElementById("post-container");
+            postContainer.innerHTML = ""; // очищаем контейнер перед загрузкой
+
+            posts.forEach((post, index) => {
+                var postTitle = document.createElement("h1");
+                postTitle.classList.add("post-title");
+                postTitle.innerText = post.title;
+
+                var postDescription = document.createElement("p");
+                postDescription.classList.add("post-description");
+                postDescription.innerText = post.description;
+
+                var deleteButton = document.createElement("button");
+                deleteButton.classList.add("delete-button");
+                deleteButton.innerText = "Удалить";
+                deleteButton.onclick = function() {
+                    promptForPassword(index);
+                };
+
+                postContainer.appendChild(postTitle);
+                postContainer.appendChild(postDescription);
+                postContainer.appendChild(deleteButton);
+            });
+        }
+
+        function promptForPassword(index) {
+            var enteredPassword = prompt("Введите пароль для удаления поста:");
+            if (enteredPassword === adminPassword) {
+                deletePost(index);
+            } else {
+                alert("Неверный пароль. Пост не будет удален.");
+            }
+        }
+
+        function savePost(title, description) {
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            var postExists = posts.some(post => post.title === title && post.description === description);
+
+            if (!postExists) {
+                posts.push({ title: title, description: description });
+                localStorage.setItem("posts", JSON.stringify(posts));
+            }
+        }
+
+        function deletePost(index) {
+            var posts = JSON.parse(localStorage.getItem("posts")) || [];
+            if (index > -1) {
+                posts.splice(index, 1); // удаляем пост по индексу
+                localStorage.setItem("posts", JSON.stringify(posts)); // сохраняем обновленный массив
+                loadPosts(); // обновляем отображение постов
+            }
+        }
+
+        // Загрузка постов при загрузке страницы
+        window.onload = function() {
+            loadPosts();
+
+            // Получаем параметры из URL
+            var urlParams = new URLSearchParams(window.location.search);
+            var title = urlParams.get("title");
+            var description = urlParams.get("description");
+
+            // Если есть пост, сохраняем его
+            if (title && description) {
+                savePost(title, description);
+                loadPosts();
+            }
+        }
+    </script>
+
+</body>
+</html>

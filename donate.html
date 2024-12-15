@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Пожертвовать</title>
+    <link rel="icon" type="image/x-icon" href="/src/images/uruma.jpg">
+    <style>
+        body {
+            background-color:gainsboro;
+        }
+        .helpme {
+            text-align: center;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .methods {
+            display: flex;
+            justify-content: space-around;
+        }
+        @media (max-width: 600px) {
+            .methods {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+        .t__bank {
+            width: 500px;
+            height: 500px;
+        }
+        .ton__method {
+            width: 500px;
+            height: 500px;    
+        }
+        .bank_method h2 {
+            text-align: center;
+        }
+        .crypto_method {
+            text-align: center;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="helpme">Поддержать</h1>
+
+    <div class="methods">
+        <div class="bank_method">
+            <img class="t__bank" src="/src/images/t-bank.png" alt="t-bank">
+            <h2>Т-Банк: +7 (921) 090 53 70</h2>
+        </div>
+        <div class="crypto_method">
+            <img class="ton__method" src="/src/images/ton-method.png" alt="ton">
+            <h2>Адрес: UQCXwjlkRuEE3HDY2iDTH00Oa7xcvLQOEpr4lscCx4d-DdeC <br>(ТОЛЬКО 'TON')</h2>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,58 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+.container {
+    background-color: cadetblue;
+    height: 1000px;
+}
+
+.read__posts {
+    color: #fff;
+    background-color: #000;
+    border: 2px solid black;
+    padding: 9px 25px;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.enter {
+    padding: 9px 25px;
+    background-color: #000;
+    color: white;
+    border: none;
+    font-size: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.write {
+    font-size: 40px;
+    padding-left: 20px;
+    padding-top: 20px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.login {
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    border: none;
+}
+
+.passwd {
+    padding: 6px 10px;
+    border-radius: 5px;
+    margin-left: 20px;
+    border: none;
+}
+
+.read {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin-left: 20px;
+}
